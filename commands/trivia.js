@@ -23,7 +23,7 @@ module.exports = {
     msg.reply(triviaMessage).then(async (msg) => {
       await delay(30000);
       const triviaMessage2 = `${question}\n\n${options}\n**ANSWER:** \`${correctAnswer}\``;
-      msg.edit({ content: triviaMessage2});
+      msg.edit({ content: triviaMessage2 });
     });
   },
 };
