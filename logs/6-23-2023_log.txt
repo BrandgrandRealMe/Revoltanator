@@ -1,0 +1,13 @@
+11:30:09 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:30:09 PM
+11:30:11 PM| ℹ️ Info | Logged in as Revoltanator!
+11:32:04 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:32:04 PM
+11:32:06 PM| ℹ️ Info | Logged in as Revoltanator!
+11:34:22 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:34:22 PM
+11:34:24 PM| ℹ️ Info | Logged in as Revoltanator!
+11:34:34 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:34:34 PM
+11:34:36 PM| ℹ️ Info | Logged in as Revoltanator!
+11:34:49 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:34:49 PM
+11:34:51 PM| ℹ️ Info | Logged in as Revoltanator!
+11:35:15 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:35:15 PM
+11:37:53 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:37:53 PM
+11:42:29 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/23/2023 11:42:28 PM

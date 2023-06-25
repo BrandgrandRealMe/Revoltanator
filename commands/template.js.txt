@@ -1,0 +1,13 @@
+const { CommandBuilder } = require("../Commands.js");
+
+module.exports = {
+  command: new CommandBuilder()
+    .setName("ping")
+    .setDescription("Get the bots latency."),
+  run: async function(msg, data) {
+
+// Command goes here :)
+
+    
+  }
+}
