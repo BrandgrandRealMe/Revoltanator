@@ -16,12 +16,16 @@ module.exports = {
     }
     const { joke } = await fetchJoke();
     const image = "https://alekeagle.com/assets/dad.518f1968.png";
-    msg.reply({
-      content: joke,
-      masquerade: {
-        name: "Dad",
-        avatar: image,
-      },
-    });
+    if (msg.channel.havePermission("Masquerade")) {
+      msg.reply({
+        content: joke,
+        masquerade: {
+          name: "Dad",
+          avatar: image,
+        },
+      });
+    } else {
+      msg.reply({ content: joke });
+    }
   },
 };

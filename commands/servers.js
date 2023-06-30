@@ -6,8 +6,7 @@ module.exports = {
     .setDescription("Fetch a list of servers the bot is in")
     .addRequirement((r) => r.setOwnerOnly(true)),
   run: function (msg) {
-    console.log(this.client.allServers);
-    let m = this.client.allServers.map((e) => '"' + e.name).join('"\n');
+    let m = this.client.servers.map((e) => '"' + e.name).join('"\n');
     this.pagination(
       "```js\n$content\n```\n\nPage $currPage/$maxPage",
       m,

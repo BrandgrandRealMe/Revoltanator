@@ -5,20 +5,18 @@ const { Client } = require("revolt.js");
 const fs = require("fs");
 const path = require("path");
 
-// Just to keep the code running with uptimerobot :)
-var http = require("http");
-http
-  .createServer(function (req, res) {
-    res.write("I'm alive");
-    res.end();
-  })
-  .listen(8080);
+const ver = "1.0.0"
+
+
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const bl = require("betterdevlogs");
 const log = bl({ logfolder: "logs" });
 
-let client = new Client();
+let client =  new Client();
 this.client = client;
+const uploader = new Uploader(client);
+
 
 let config;
 if (fs.existsSync("./config.json")) {
@@ -30,10 +28,27 @@ if (fs.existsSync("./config.json")) {
 }
 
 client.on("ready", async () => {
-  client.user.edit({
-    status: { text: "//help | WIP bot", presence: "Online" },
-  });
   log.info(`Logged in as ${client.user.username}!`);
+
+  // Just to keep the code running with uptimerobot :)
+  var http = require("http");
+  http
+    .createServer(function (req, res) {
+      res.write(`I'm alive / Logged in as ${client.user.username}!`);
+      res.end();
+    })
+    .listen(8080);
+
+  setInterval(async function () {
+    const servers = await client.servers.size();
+    client.user.edit({
+      status: { text: `//help | ${servers} Servers!`, presence: "Online" },
+    });
+    await delay(10000);
+    client.user.edit({
+      status: { text: `//help | v${ver}`, presence: "Online" },
+    });
+  }, 20000);
 });
 
 const prefix = "//";
@@ -49,9 +64,9 @@ handler.setOnPing((msg) => {
   msg.reply(m, false);
 });
 handler.setPaginationHandler((message, form, contents) => {
-  this.pagination(form, contents, message, 8);
+  pagination(form, contents, message, 8);
 });
-handler.enableHelpPagination(false);
+handler.enableHelpPagination(true);
 const dir = path.join(__dirname, "commands");
 const files = fs.readdirSync(dir).filter((f) => f.endsWith(".js"));
 const runnables = new Map();
@@ -77,9 +92,156 @@ files.forEach((commandFile) => {
 });
 handler.on("run", (data) => {
   if (runnables.has(data.command.uid)) {
-    runnables.get(data.command.uid).call(this, data.message, data);
+    runnables
+      .get(data.command.uid)
+      .call({ client, pagination, uploader, ver }, data.message, data);
   }
 });
+
+const observedReactions = new Map();
+
+const reactionUpdate = (message, user, emoji) => {
+  const event = { user_id: user, emoji_id: emoji };
+  if (!observedReactions.has(message.id)) return;
+  if (event.user_id == client.user.id) return;
+  const observer = observedReactions.get(message.id);
+  if (!observer.r.includes(event.emoji_id)) return;
+  if (observer.user) if (observer.user != user) return;
+  observer.cb(event, message);
+};
+client.on("messageReactionAdd", reactionUpdate);
+client.on("messageReactionRemove", reactionUpdate);
+
+function observeReactions(msg, reactions, cb, user) {
+  observedReactions.set(msg.id, {
+    r: reactions,
+    user: user ? user.id : null,
+    cb,
+  });
+  return msg.id;
+}
+function unobserveReactions(i) {
+  return observedReactions.delete(i);
+}
+
+function paginate(text, maxLinesPerPage = 5, page = 0) {
+  page -= 1;
+  const lines = text.split("\n");
+  return lines.slice(
+    maxLinesPerPage * page,
+    maxLinesPerPage * page + maxLinesPerPage
+  );
+}
+function pages(text, maxLinesPerPage = 2) {
+  const lines = Array.isArray(text) ? text : text.split("\n");
+  const pages = [];
+  for (
+    let i = 0, n = 0;
+    i < lines.length;
+    i++, i % maxLinesPerPage == 0 ? n++ : n
+  ) {
+    let line = lines[i];
+    if (!pages[n]) pages[n] = [];
+    pages[n].push(line);
+  }
+  return pages;
+}
+function pagination(form, content, message, maxLinesPerPage = 2) {
+  if (!message.channel.havePermission("React")) {
+    if (!message.channel.havePermission("SendMessage"))
+      return message.member.user
+        .openDM()
+        .then((dm) => {
+          dm.sendMessage({
+            content: " ",
+            embeds: [
+              embedify(
+                "I am unable to send messages in <#" +
+                  message.channelId +
+                  '>. Please contact a server administrator and grant me the "SendMessage" permission.'
+              ),
+            ],
+          });
+        })
+        .catch(() => {});
+    return message.reply(
+      {
+        content: " ",
+        embeds: [
+          embedify(
+            "I need reaction permissions to work. Please contact a server administrator to address this."
+          ),
+        ],
+      },
+      true
+    );
+  }
+  const arrows = ["⬅️", "➡️"];
+  var page = 0;
+  const paginated = pages(content, maxLinesPerPage);
+  form = form.replace(/\$maxPage/gi, paginated.length);
+
+  var lastEmbed;
+  var messageFormatter = (t) => {
+    lastEmbed = embedify(
+      form.replace(/\$currPage/gi, page + 1).replace(/\$content/gi, t)
+    );
+    return {
+      embeds: [lastEmbed],
+    };
+  };
+
+  message
+    .reply(
+      {
+        content: " ",
+        ...messageFormatter(paginated[0].join("\n")),
+        interactions: {
+          restrict_reactions: true,
+          reactions: arrows,
+        },
+      },
+      false
+    )
+    .then((m) => {
+      const oid = observeReactions(m, arrows, (e, ms) => {
+        let change = e.emoji_id == arrows[0] ? -1 : 1;
+        if (page + change < 0) (page = paginated.length - 1), (change = 0);
+        if (!paginated[page + change]) (page = 0), (change = 0);
+        page += change;
+        const c = paginated[page].join("\n");
+        ms.edit(messageFormatter(c));
+        clearTimeout(currTime);
+        currTime = setTimeout(() => {
+          finish();
+        }, 60 * 1000);
+      });
+      const finish = () => {
+        unobserveReactions(oid);
+        m.edit({
+          content: "Session Closed",
+          embeds: [
+            embedify(
+              lastEmbed.description +
+                "\n\n Session closed - Changing pages **won't work** from here.",
+              "red"
+            ),
+          ],
+        });
+      };
+      var currTime = setTimeout(() => {
+        finish();
+      }, 60 * 1000);
+    });
+}
+
+function embedify(text = "", color = "#FE2627") {
+  return {
+    type: "Text",
+    description: "" + text, // convert bools and numbers to strings
+    colour: color,
+  };
+}
 
 client.loginBot(process.env["TOKEN"]);
 

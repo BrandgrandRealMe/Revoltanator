@@ -26,3 +26,99 @@
  2:40:43 AM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
  2:44:24 AM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 2:44:24 AM
  2:44:26 AM | ℹ️ Info | Logged in as Revoltanator!
+ 3:12:34 AM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 3:12:42 AM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 3:58:55 AM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 3:58:55 AM
+ 3:58:56 AM | ℹ️ Info | Logged in as Revoltanator!
+ 4:24:15 AM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 4:24:15 AM
+ 4:24:17 AM | ℹ️ Info | Logged in as Revoltanator!
+ 5:28:51 AM | ℹ️ Info | Logged in as Revoltanator!
+ 5:28:55 AM | ℹ️ Info | Logged in as Revoltanator!
+ 6:03:29 AM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:04:47 AM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 9:12:11 AM | ℹ️ Info | Logged in as Revoltanator!
+11:06:39 AM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 11:06:39 AM
+11:06:41 AM| ℹ️ Info | Logged in as Revoltanator!
+ 4:22:31 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:01:01 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:01:01 PM
+ 6:01:03 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:04:57 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:04:57 PM
+ 6:04:58 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:05:17 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:07:08 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:07:08 PM
+ 6:07:09 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:07:18 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:07:46 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:07:46 PM
+ 6:07:48 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:07:53 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:08:47 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:08:47 PM
+ 6:08:49 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:08:57 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:08:57 PM
+ 6:08:59 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:09:05 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:09:27 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:09:27 PM
+ 6:09:29 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:11:52 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:11:52 PM
+ 6:11:54 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:12:05 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:26:32 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:26:32 PM
+ 6:26:34 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:39:49 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:41:58 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:41:57 PM
+ 6:41:59 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:42:47 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:45:15 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:52:27 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:52:27 PM
+ 6:52:29 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:56:57 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 6:56:57 PM
+ 6:56:59 PM | ℹ️ Info | Logged in as Revoltanator!
+ 6:57:10 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 6:59:59 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:02:53 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:02:53 PM
+ 7:02:55 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:03:15 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:03:48 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:03:48 PM
+ 7:03:50 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:04:35 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:04:35 PM
+ 7:04:37 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:05:19 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:05:51 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:05:51 PM
+ 7:05:53 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:06:05 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:06:24 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:06:24 PM
+ 7:06:26 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:07:40 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:07:40 PM
+ 7:07:42 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:08:58 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:08:58 PM
+ 7:09:00 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:20:57 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:20:57 PM
+ 7:20:58 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:21:21 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:21:21 PM
+ 7:21:23 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:25:36 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:25:36 PM
+ 7:25:37 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:26:22 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:26:22 PM
+ 7:26:24 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:33:22 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:33:22 PM
+ 7:33:23 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:33:47 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:33:47 PM
+ 7:33:49 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:34:19 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:34:39 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:34:59 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:35:19 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:35:39 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:35:55 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:35:55 PM
+ 7:35:57 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:36:27 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:36:47 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:37:07 PM | ⚠️ Error |  [Error_Handling] :: Unhandled Rejection/Catch
+ 7:37:27 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:37:27 PM
+ 7:37:29 PM | ℹ️ Info | Logged in as Revoltanator!
+ 7:37:56 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 7:37:55 PM
+ 7:37:57 PM | ℹ️ Info | Logged in as Revoltanator!
+ 8:03:27 PM |  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 8:03:27 PM
+ 8:03:29 PM | ℹ️ Info | Logged in as Revoltanator!
+10:51:50 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 10:51:50 PM
+10:52:04 PM|  Logger  | BetterDevLogs v1.0.0 BETA - Log Started! 6/25/2023 10:52:04 PM
+10:52:06 PM| ℹ️ Info | Logged in as Revoltanator!
