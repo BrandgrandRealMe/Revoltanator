@@ -5,7 +5,10 @@ const { Client } = require("revolt.js");
 const fs = require("fs");
 const path = require("path");
 
-const ver = "1.0.0"
+const RevoltBots = require('revoltbots.js');
+const RBapi = new RevoltBots.Client(process.env['RBapiKey']);
+
+const ver = "1.0.1"
 
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -28,6 +31,11 @@ if (fs.existsSync("./config.json")) {
 }
 
 client.on("ready", async () => {
+
+  RBapi.autopostStats(client).then(result => {
+    		console.log(result)
+	});
+  
   log.info(`Logged in as ${client.user.username}!`);
 
   // Just to keep the code running with uptimerobot :)
@@ -44,11 +52,11 @@ client.on("ready", async () => {
     client.user.edit({
       status: { text: `//help | ${servers} Servers!`, presence: "Online" },
     });
-    await delay(10000);
+    await delay(30000);
     client.user.edit({
       status: { text: `//help | v${ver}`, presence: "Online" },
     });
-  }, 20000);
+  }, 60000);
 });
 
 const prefix = "//";

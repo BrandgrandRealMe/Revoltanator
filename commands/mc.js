@@ -33,15 +33,19 @@ module.exports = {
 
     if (data.commandId == "whois") {
       const input = data.get("player").value;
+      try {
       const player = new MinecraftPlayerInfo({
         usernameOrUUID: input,
       });
-      try {
+      
         const info = await player.getPlayerInfo();
       } catch {
         msg.reply("can not find this player!")
         return
       }
+      const player = new MinecraftPlayerInfo({
+        usernameOrUUID: input,
+      });
       const info = await player.getPlayerInfo();
       const head = await player.getHead();
       const UUID = info.uuid;

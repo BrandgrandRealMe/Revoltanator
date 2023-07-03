@@ -28,6 +28,8 @@
     "random-reddit": "^2.0.3",
     "revoice.js": "^0.1.7537",
     "revolt-uploader": "^1.1.2",
-    "revolt.js": "^7.0.0-beta.7"
+    "revolt.js": "^7.0.0-beta.7",
+    "revoltbots.js": "^1.0.5",
+    "smartestchatbot": "^3.0.0"
   }
 }
