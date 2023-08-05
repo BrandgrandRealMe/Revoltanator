@@ -14,6 +14,7 @@ const options = {
 module.exports = {
   command: new CommandBuilder()
     .setName("google")
+    .setCategory("util")
     .setDescription(
       "Google something. Gets the first page off of the search page."
     )

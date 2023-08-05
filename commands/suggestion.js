@@ -4,6 +4,7 @@ const Embed = require("../util/embed");
 module.exports = {
   command: new CommandBuilder()
     .setName("suggestion")
+    .setCategory("util")
     .setDescription("Suggest something to the dev.")
     .addAlias("suggest")
     .addTextOption((o) =>

@@ -8,6 +8,7 @@ var oneLinerJoke = require('one-liner-joke');
 module.exports = {
   command: new CommandBuilder()
     .setName("random")
+    .setCategory("fun")
     .setDescription("Get random things.")
     .addSubcommand((c) => c.setName("color").setId("color"))
     .addSubcommand((c) => c.setName("joke").setId("joke")),

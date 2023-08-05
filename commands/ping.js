@@ -3,6 +3,7 @@ const { CommandBuilder } = require("../Commands.js");
 module.exports = {
   command: new CommandBuilder()
     .setName("ping")
+    .setCategory("util")
     .setDescription("Get the bots latency."),
   run: async function (msg, data) {
     let now = Date.now();

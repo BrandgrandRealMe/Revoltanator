@@ -9,6 +9,7 @@ const Uploader = require("revolt-uploader");
 module.exports = {
   command: new CommandBuilder()
     .setName("mc")
+    .setCategory("minecraft")
     .setDescription("Minecraft tools.")
     .addSubcommand((c) => c.setName("whois").setId("whois").addTextOption((o) =>
       o.setName("player")

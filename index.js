@@ -4,6 +4,8 @@ const { Revoice } = require("revoice.js");
 const { Client } = require("revolt.js");
 const fs = require("fs");
 const path = require("path");
+const { Hercai } = require('hercai');
+
 
 const RevoltBots = require('revoltbots.js');
 const RBapi = new RevoltBots.Client(process.env['RBapiKey']);
@@ -18,6 +20,7 @@ const log = bl({ logfolder: "logs" });
 
 let client =  new Client();
 this.client = client;
+let hercai = new Hercai();
 const uploader = new Uploader(client);
 
 
@@ -50,11 +53,11 @@ client.on("ready", async () => {
   setInterval(async function () {
     const servers = await client.servers.size();
     client.user.edit({
-      status: { text: `//help | ${servers} Servers!`, presence: "Online" },
+      status: { text: `//help | ${servers} Servers!`, presence: "Focus" },
     });
     await delay(30000);
     client.user.edit({
-      status: { text: `//help | v${ver}`, presence: "Online" },
+      status: { text: `//help | v${ver}`, presence: "Focus" },
     });
   }, 60000);
 });
@@ -102,7 +105,7 @@ handler.on("run", (data) => {
   if (runnables.has(data.command.uid)) {
     runnables
       .get(data.command.uid)
-      .call({ client, pagination, uploader, ver }, data.message, data);
+      .call({ client, pagination, uploader, ver, RBapi, hercai, log }, data.message, data);
   }
 });
 
@@ -255,13 +258,16 @@ client.loginBot(process.env["TOKEN"]);
 
 process.on("unhandledRejection", (reason, p) => {
   log.error(" [Error_Handling] :: Unhandled Rejection/Catch");
+  log.error(reason, p);
   console.log(reason, p);
 });
 process.on("uncaughtException", (err, origin) => {
   log.error(" [Error_Handling] :: Uncaught Exception/Catch");
+  log.error(err, origin);
   console.log(err, origin);
 });
 process.on("uncaughtExceptionMonitor", (err, origin) => {
   log.error(" [Error_Handling] :: Uncaught Exception/Catch (MONITOR)");
+  log.error(err, origin);
   console.log(err, origin);
 });

@@ -3,6 +3,7 @@ const { CommandBuilder } = require("../Commands.js");
 module.exports = {
   command: new CommandBuilder()
     .setName("dadjoke")
+    .setCategory("fun")
     .setDescription("Get a random dadjoke!"),
   run: async function (msg, data) {
     async function fetchJoke() {

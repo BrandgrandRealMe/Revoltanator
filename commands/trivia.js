@@ -7,6 +7,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 module.exports = {
   command: new CommandBuilder()
     .setName("trivia")
+    .setCategory("fun")
     .setDescription("Get a trivia question!"),
   run: async function (msg, data) {
     const response = await fetch(

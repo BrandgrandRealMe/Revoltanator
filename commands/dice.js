@@ -3,6 +3,7 @@ const { CommandBuilder } = require("../Commands.js");
 module.exports = {
   command: new CommandBuilder()
     .setName("dice")
+    .setCategory("fun")
     .setDescription("Roll a 6 sided die!")
     .addAlias("roll"),
   run: async function (msg, data) {

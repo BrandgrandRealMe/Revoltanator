@@ -7,6 +7,7 @@ const AI = new smartestchatbot.Client(process.env.SCBKEY)
 module.exports = {
   command: new CommandBuilder()
     .setName("ai")
+    .setCategory("AI")
     .setDescription("Talk to an AI.")
     .addTextOption((o) =>
       o

@@ -3,6 +3,7 @@ const { CommandBuilder } = require("../Commands.js");
 module.exports = {
   command: new CommandBuilder()
     .setName("servers")
+    .setCategory("util")
     .setDescription("Fetch a list of servers the bot is in")
     .addRequirement((r) => r.setOwnerOnly(true)),
   run: function (msg) {

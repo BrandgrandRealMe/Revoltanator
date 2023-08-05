@@ -12,6 +12,7 @@ const Presence = {
 module.exports = {
   command: new CommandBuilder()
     .setName("whois")
+    .setCategory("util")
     .setDescription("Get info on a member or yourself")
     .addUserOption((o) =>
       o
