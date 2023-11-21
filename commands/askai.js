@@ -30,10 +30,8 @@ module.exports = {
       return inputString.replace(/@User/g, replacementText);
     }
     
-msg.reply({content: "Asking AI"}).then(async (message) => {
-     // fetch(url)
-     // .then(response => response.json()) // load response as json
-    //  .then(async data => sendMSG(data, message)); // print message response   
+msg.reply({content: "Asking AI..."}).then(async (message) => {
+
   hercai.question({content:input}).then(response => {
     const originalString = response.reply
     const replacedString = replaceUserText(originalString, msg.author);

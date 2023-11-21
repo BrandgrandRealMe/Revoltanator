@@ -10,7 +10,7 @@ const { Hercai } = require('hercai');
 const RevoltBots = require('revoltbots.js');
 const RBapi = new RevoltBots.Client(process.env['RBapiKey']);
 
-const ver = "1.0.1"
+const ver = "1.0.4"
 
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
