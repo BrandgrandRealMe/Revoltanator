@@ -28,40 +28,42 @@ module.exports = {
     client = this.client
     hercai = this.hercai
 
-    
-    const premium = await RBapi.hasVoted(client, msg.author.id);
-    console.log(premium.voted)
-    
-    if (!premium) {
-      msg.reply("You do NOT have premium!")
-      return
-    }
+
+    //const premium = await RBapi.hasVoted(client, msg.author.id);
+
+    // if (!premium) {
+    //   msg.reply("You do NOT have premium!")
+    //   return
+    // }
+
+    msg.react("01H3AE38P1134S8Z0E8J4BXBVN")
+
     const uploader = this.uploader;
     const message = data.get("prompt").value;
     const fname = `${slugify(message)}.png`
 
-    hercai.drawImage({model:"v2",prompt:message}).then(async response => {
+    hercai.drawImage({ model: "v3-beta", prompt: message }).then(async response => {
       //console.log(response)
-      
-      msg.reply({ content: "Here's your image: ", attachments: [await uploader.uploadUrl(response.url, fname)]});
-// The module will reply based on the prompt!
 
-});
-//     const API_KEY = process.env['ClipDKey']; // your api key
-//     const form = new FormData()
-// form.append('prompt', message)
+      msg.reply({ content: "Here's your image: ", attachments: [await uploader.uploadUrl(response.url, fname)] });
+      // The module will reply based on the prompt!
 
-// fetch('https://clipdrop-api.co/text-to-image/v1', {
-//   method: 'POST',
-//   headers: {
-//     'x-api-key': API_KEY,
-//   },
-//   body: form,
-// })
-//   .then(response => response.arrayBuffer())
-//   .then(async (buffer) => {
-//     msg.reply({ content: "Here's your image: ", attachments: [await uploader.upload(Buffer.from(buffer), "image.png")]});
-//   })
+    });
+    //     const API_KEY = process.env['ClipDKey']; // your api key
+    //     const form = new FormData()
+    // form.append('prompt', message)
+
+    // fetch('https://clipdrop-api.co/text-to-image/v1', {
+    //   method: 'POST',
+    //   headers: {
+    //     'x-api-key': API_KEY,
+    //   },
+    //   body: form,
+    // })
+    //   .then(response => response.arrayBuffer())
+    //   .then(async (buffer) => {
+    //     msg.reply({ content: "Here's your image: ", attachments: [await uploader.upload(Buffer.from(buffer), "image.png")]});
+    //   })
 
   }
 }
