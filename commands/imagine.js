@@ -42,7 +42,7 @@ module.exports = {
     const message = data.get("prompt").value;
     const fname = `${slugify(message)}.png`
 
-    hercai.drawImage({ model: "v3-beta", prompt: message }).then(async response => {
+    hercai.drawImage({ model: "v2", prompt: message }).then(async response => {
       //console.log(response)
 
       msg.reply({ content: "Here's your image: ", attachments: [await uploader.uploadUrl(response.url, fname)] });

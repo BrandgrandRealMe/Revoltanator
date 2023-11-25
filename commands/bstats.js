@@ -9,6 +9,28 @@ const Presence = {
   Invisible: ":01H495GY6Y4P6HQMXMQM4KRPKV: | Offline",
 };
 
+function msToTime (ms) {
+  // Get the total seconds, minutes, hours, and days
+  let seconds = ms / 1000;
+  let minutes = seconds / 60;
+  let hours = minutes / 60;
+  let days = hours / 24;
+
+  // Get the remaining values after each division
+  seconds = Math.floor (seconds % 60);
+  minutes = Math.floor (minutes % 60);
+  hours = Math.floor (hours % 24);
+  days = Math.floor (days);
+
+  // Add leading zeros if the values are less than 10
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  hours = (hours < 10) ? "0" + hours : hours;
+  days = (days < 10) ? "0" + days : days;
+
+  // Return the formatted string
+  return days + "d " + hours + "h " + minutes + "m " + seconds+"s";
+}
 
 module.exports = {
   command: new CommandBuilder()
@@ -20,29 +42,22 @@ module.exports = {
     const log = this.log;
     const user = client.user;
 
-    var milliseconds = parseInt((client.uptime % 1000) / 100),
-      seconds = parseInt((client.uptime / 1000) % 60),
-      minutes = parseInt((client.uptime / (1000 * 60)) % 60),
-      hours = parseInt((client.uptime / (1000 * 60 * 60)) % 24);
-     days = parseInt((client.uptime / (1000 * 60 * 60 * 24)) % 60);
-    days = (days < 10) ? "0" + days : days;
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    UTSeconds = process.uptime();
+    var uptime = msToTime(UTSeconds*1000);
 
-    var uptime = days + "d " + hours + "h " + minutes + "m " + seconds + "." + milliseconds + "s";
     var ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB';
-
+    
     
     const embed = new Embed()
       .setDescription(
         `# 🤖 Bot Stats 🤖
 
-        ${user}\nID: ${ID}\nUsername: ${user.username}\nPresence: ${
+        ${user}\nID: ${user.id}\nUsername: ${user.username}\nPresence: ${
           Presence[user.presence]
         }\nBot: ${user.bot ? "Yes" : "No"}
 
         **UPTIME**: ${uptime}
+        **UPTIME RAW**: ${UTSeconds}
         **RAM**: ${ram}
         `
       )
