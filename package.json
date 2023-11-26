@@ -13,6 +13,7 @@
     "@types/node": "^18.0.6",
     "all-minecraft": "^1.0.14",
     "betterdevlogs": "^1.0.1",
+    "express": "^4.18.2",
     "file": "^0.2.2",
     "googlethis": "^1.7.1",
     "hercai": "^11.0.0",
@@ -32,6 +33,7 @@
     "revolt-uploader": "^1.1.2",
     "revolt.js": "^7.0.0-beta.7",
     "revoltbots.js": "^1.0.5",
-    "smartestchatbot": "^3.0.0"
+    "smartestchatbot": "^3.0.0",
+    "socket.io": "^4.7.2"
   }
 }

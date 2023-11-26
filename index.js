@@ -6,11 +6,15 @@ const fs = require("fs");
 const path = require("path");
 const { Hercai } = require('hercai');
 
+// Webpage Stuff
+const express = require('express');
+const { createServer } = require('node:http');
+const { Server } = require('socket.io');
 
 const RevoltBots = require('revoltbots.js');
 const RBapi = new RevoltBots.Client(process.env['RBapiKey']);
 
-const ver = "1.0.4"
+const ver = "1.0.7"
 
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -20,6 +24,7 @@ const log = bl({ logfolder: "logs" });
 
 let client =  new Client();
 this.client = client;
+
 let hercai = new Hercai();
 const uploader = new Uploader(client);
 
@@ -41,16 +46,46 @@ client.on("ready", async () => {
   
   log.info(`Logged in as ${client.user.username}!`);
 
-  // Just to keep the code running with uptimerobot :)
-  var http = require("http");
-  http
-    .createServer(function (req, res) {
-      res.write(`I'm alive / Logged in as ${client.user.username}!`);
-      res.end();
-    })
-    .listen(8080);
+  // Webpage Stuff :)
+  const app = express();
+  const server = createServer(app);
+
+  app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/web/index.html");
+  });
+  app.get('/index.css', (req, res) => {
+    res.sendFile(__dirname + "/web/index.css");
+  });
+  app.get('/index.js', (req, res) => {
+    res.sendFile(__dirname + "/web/index.js");
+  });
+
+  server.listen(3000, () => {
+    log.info('server running!');
+  });
+  // Socket Stuff
+  const io = new Server(server);
+  io.on('connection', (socket) => {
+    updateWEB();
+    console.log('a user connected');
+  });
+  
+  async function updateWEB() {
+    var ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB';
+    var servers = await client.servers.size();
+    var users = await client.users.size();
+    var channels = await client.channels.size();
+    
+    var stats = { "servers": servers, "users": users, "channels": channels, "ram": ram, "commands": handler.commands.length };
+    io.emit('update', stats);
+  }
+  setInterval(async function () {
+    updateWEB()
+    }, 500);
+  ///////////////////////
 
   setInterval(async function () {
+
     const servers = await client.servers.size();
     client.user.edit({
       status: { text: `//help | ${servers} Servers!`, presence: "Focus" },

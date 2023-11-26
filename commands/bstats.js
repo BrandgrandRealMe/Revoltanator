@@ -46,7 +46,9 @@ module.exports = {
     var uptime = msToTime(UTSeconds*1000);
 
     var ram = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'MB';
-    
+    var servers = await client.servers.size();
+    var users = await client.users.size();
+    var channels = await client.channels.size();
     
     const embed = new Embed()
       .setDescription(
@@ -59,6 +61,10 @@ module.exports = {
         **UPTIME**: ${uptime}
         **UPTIME RAW**: ${UTSeconds}
         **RAM**: ${ram}
+        
+        **SERVERS**: ${servers}
+        **USERS**: ${users}
+        **CHANNELS**: ${channels}
         `
       )
       .setColor(`#FE2627`);
