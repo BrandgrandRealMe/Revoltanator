@@ -16,21 +16,22 @@ module.exports = {
 
 
     if (data.commandId == "color") {
+      msg.react("01H3AE38P1134S8Z0E8J4BXBVN");
       let randomColor = await lib.http.request['@1.1.6'].get({
   url: `https://api.popcat.xyz/randomcolor`,
 });
       
     const uploader = this.uploader;
-    let color = `0x${randomColor.data.hex}`;
     let name = randomColor.data.name
     let hex = randomColor.data.hex
     let url = randomColor.data.image
-    let Image = await uploader.uploadUrl(url, `${hex}`)
+    let Image = await uploader.uploadUrl(url, `${hex}.png`)
       
     const embed = new Embed()
         .setTitle(`${name}`)
         .setDescription(`> **Colour Hex code:** \`#${hex}\``)
-        .setColor(`#${hex}`);
+        .setColor(`#${hex}`)
+        .setMedia(await Image);
 
       msg.reply({ embeds: [embed] });
 

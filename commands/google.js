@@ -27,12 +27,13 @@ module.exports = {
   run: async function (msg, data) {
     const response = await google.search(data.get("query").value, options);
     const gsdata = response.results[0];
-    const title = gsdata.title;
+    console.log(response);
+    //const title = gsdata.title;
     const desc = gsdata.description;
     const url = gsdata.url;
 
     const embed = new Embed()
-      .setDescription(`## ${title}\n${desc}`)
+      .setDescription(`## \n${desc}`)//${title}
       .setTitle(data.get("query").value)
       .setColor(`#2DC5F8`);
 

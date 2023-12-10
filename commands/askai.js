@@ -21,7 +21,7 @@ module.exports = {
     const hercai = this.hercai;
 
   //  const API_KEY = process.env['youKey']; // your api key
-  //  const url = `https://api.betterapi.net/youchat?inputs=${input}&key=${API_KEY}`; // set API endpoint
+  //  const url = `https://api.betterapi.net/youchat?inputs=${input}&key=${API_KEY}`; // set API endpoint 
 
     async function sendMSG(d,message){
       message.edit({content: await d})

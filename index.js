@@ -6,6 +6,16 @@ const fs = require("fs");
 const path = require("path");
 const { Hercai } = require('hercai');
 
+// Bard Stuff
+const { TextServiceClient } = require("@google-ai/generativelanguage").v1beta3;
+const { GoogleAuth } = require("google-auth-library");
+
+const API_KEY = process.env.BARDKEY;
+
+const bard = new TextServiceClient({
+  authClient: new GoogleAuth().fromAPIKey(API_KEY),
+});
+
 // Webpage Stuff
 const express = require('express');
 const { createServer } = require('node:http');
@@ -14,7 +24,7 @@ const { Server } = require('socket.io');
 const RevoltBots = require('revoltbots.js');
 const RBapi = new RevoltBots.Client(process.env['RBapiKey']);
 
-const ver = "1.0.7"
+const ver = "1.0.8"
 
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -26,6 +36,7 @@ let client =  new Client();
 this.client = client;
 
 let hercai = new Hercai();
+
 const uploader = new Uploader(client);
 
 
@@ -39,6 +50,8 @@ if (fs.existsSync("./config.json")) {
 }
 
 client.on("ready", async () => {
+
+  
 
   RBapi.autopostStats(client).then(result => {
     		console.log(result)
@@ -140,7 +153,7 @@ handler.on("run", (data) => {
   if (runnables.has(data.command.uid)) {
     runnables
       .get(data.command.uid)
-      .call({ client, pagination, uploader, ver, RBapi, hercai, log }, data.message, data);
+      .call({ client, pagination, uploader, ver, RBapi, hercai, log, bard }, data.message, data);
   }
 });
 
