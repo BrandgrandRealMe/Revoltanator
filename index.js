@@ -31,6 +31,8 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const bl = require("betterdevlogs");
 const log = bl({ logfolder: "logs" });
+var envTest = process.env.envTest;
+log.debug(envTest);
 
 let client =  new Client();
 this.client = client;
