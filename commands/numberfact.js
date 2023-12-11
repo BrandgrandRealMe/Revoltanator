@@ -1,6 +1,5 @@
 const { CommandBuilder } = require("../Commands.js");
-const fet = require("node-fetch");
-
+const fet = await import('node-fetch');
 module.exports = {
   command: new CommandBuilder()
     .setName("numberfact")
