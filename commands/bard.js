@@ -9,6 +9,7 @@ module.exports = {
     .setName("bard")
     .setCategory("AI")
     .setDescription("Ask google bard something.")
+    .addRequirement((r) => r.setOwnerOnly(true))
     .addTextOption((o) =>
       o
       .setName("question")
