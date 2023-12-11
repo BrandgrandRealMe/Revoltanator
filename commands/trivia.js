@@ -13,7 +13,7 @@ module.exports = {
     const response = await fetch.get(
       "https://opentdb.com/api.php?amount=1&type=multiple"
     );
-    const da = await response.json();
+    const da = await response.data;
     const question = da.results[0].question;
     const answers = da.results[0].incorrect_answers;
     const correctAnswer = da.results[0].correct_answer;
