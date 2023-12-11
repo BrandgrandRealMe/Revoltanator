@@ -1,5 +1,4 @@
 require('dotenv').config()
-console.log(process.env)
 const { CommandHandler } = require("./Commands.js");
 const Uploader = require("revolt-uploader");
 const { Revoice } = require("revoice.js");
