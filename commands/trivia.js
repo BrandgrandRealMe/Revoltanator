@@ -10,7 +10,7 @@ module.exports = {
     .setCategory("fun")
     .setDescription("Get a trivia question!"),
   run: async function (msg, data) {
-    const response = await fetch(
+    const response = await fetch.get(
       "https://opentdb.com/api.php?amount=1&type=multiple"
     );
     const da = await response.json();
