@@ -2,8 +2,6 @@ const { CommandBuilder } = require("../Commands.js");
 const Embed = require("../util/embed");
 
 const { Hercai } = require('hercai');
-const fetch = require('node-fetch'); // import fetch for the API call
-
 
 module.exports = {
   command: new CommandBuilder()
