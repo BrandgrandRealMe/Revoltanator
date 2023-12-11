@@ -1,4 +1,4 @@
-const fetch = import('node-fetch');
+const fetch = require('axios');
 
 const { CommandBuilder } = require("../Commands.js");
 
