@@ -65,6 +65,7 @@ client.on("ready", async () => {
   // Webpage Stuff :)
   const app = express();
   const server = createServer(app);
+  const port = process.env.PORT;
 
   app.get('/', (req, res) => {
     res.sendFile(__dirname + "/web/index.html");
@@ -76,7 +77,7 @@ client.on("ready", async () => {
     res.sendFile(__dirname + "/web/index.js");
   });
 
-  server.listen(3000, () => {
+  server.listen(port, () => {
     log.info('server running!');
   });
   // Socket Stuff
