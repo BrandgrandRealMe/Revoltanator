@@ -38,7 +38,7 @@ module.exports = {
       
     } else if (data.commandId == "joke") {
     var getRandomJoke = oneLinerJoke.getRandomJoke();
-    var joke = getRandomJoke.body
+    var joke = getRandomJoke.body;
     msg.reply(joke)
 
       

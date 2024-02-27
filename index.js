@@ -7,6 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const { Hercai } = require('hercai');
 
+
 // Bard Stuff
 const { TextServiceClient } = require("@google-ai/generativelanguage").v1beta3;
 const { GoogleAuth } = require("google-auth-library");
@@ -77,9 +78,7 @@ client.on("ready", async () => {
     res.sendFile(__dirname + "/web/index.js");
   });
 
-  server.listen(port, () => {
-    log.info('server running!');
-  });
+  
   // Socket Stuff
   const io = new Server(server);
   io.on('connection', (socket) => {
