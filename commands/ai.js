@@ -1,8 +1,8 @@
 const { CommandBuilder } = require("../Commands.js");
 const Embed = require("../util/embed");
-const DEBUG = process.env.DEBUG
+const DEBUG = process.env.REVOLTANATOR_DEBUG
 
-const shocktoken = process.env.shocktoken;
+const shocktoken = process.env.REVOLTANATOR_shocktoken;
 
 async function shockAI(prompt, uid) {
   // console.log(`SHOCK: PROMPT - ${prompt}; UID - ${uid}; TOKEN - ${shocktoken}`);

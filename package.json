@@ -38,6 +38,7 @@
     "revoice.js": "^0.1.7537",
     "revolt-uploader": "^1.1.2",
     "revolt.js": "^7.0.0-beta.7",
+    "Revoltanator": "file:",
     "revoltbots.js": "^1.0.5",
     "smartestchatbot": "^3.0.0",
     "socket.io": "^4.7.2"

@@ -18,7 +18,7 @@ module.exports = {
     const input = data.get("question").value;
     const hercai = this.hercai;
 
-  //  const API_KEY = process.env['youKey']; // your api key
+  //  const API_KEY = process.env['REVOLTANATOR_youKey']; // your api key
   //  const url = `https://api.betterapi.net/youchat?inputs=${input}&key=${API_KEY}`; // set API endpoint 
 
     async function sendMSG(d,message){

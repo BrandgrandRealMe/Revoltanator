@@ -12,7 +12,7 @@ const { Hercai } = require('hercai');
 const { TextServiceClient } = require("@google-ai/generativelanguage").v1beta3;
 const { GoogleAuth } = require("google-auth-library");
 
-const API_KEY = process.env.BARDKEY;
+const API_KEY = process.env.REVOLTANATOR_BARDKEY;
 
 const bard = new TextServiceClient({
   authClient: new GoogleAuth().fromAPIKey(API_KEY),
@@ -24,7 +24,7 @@ const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 
 const RevoltBots = require('revoltbots.js');
-const RBapi = new RevoltBots.Client(process.env['RBapiKey']);
+const RBapi = new RevoltBots.Client(process.env['REVOLTANATOR_RBapiKey']);
 
 const ver = "1.0.8"
 
@@ -33,7 +33,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const bl = require("betterdevlogs");
 const log = bl({ logfolder: "logs" });
-var envTest = process.env.envTest;
+var envTest = process.env.REVOLTANATOR_envTest;
 log.debug(envTest);
 
 let client =  new Client();
@@ -49,7 +49,7 @@ if (fs.existsSync("./config.json")) {
   config = require("./config.json");
 } else {
   config = {
-    token: process.env.TOKEN,
+    token: process.env.REVOLTANATOR_REVOLT_TOKEN,
   };
 }
 
@@ -66,7 +66,7 @@ client.on("ready", async () => {
   // Webpage Stuff :)
   const app = express();
   const server = createServer(app);
-  const port = process.env.PORT;
+  const port = process.env.REVOLTANATOR_PORT;
 
   app.get('/', (req, res) => {
     res.sendFile(__dirname + "/web/index.html");
@@ -305,7 +305,7 @@ function embedify(text = "", color = "#FE2627") {
   };
 }
 
-client.loginBot(process.env["TOKEN"]);
+client.loginBot(process.env["REVOLTANATOR_REVOLT_TOKEN"]);
 
 process.on("unhandledRejection", (reason, p) => {
   log.error(" [Error_Handling] :: Unhandled Rejection/Catch");
