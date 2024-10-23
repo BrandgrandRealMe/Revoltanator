@@ -82,6 +82,7 @@ module.exports = {
           })
           .catch((err) => {
             console.error("Error:", err);
+            console.error("Imagine TempURL:", tempUrl);
           });
 
         // The module will reply based on the prompt!
