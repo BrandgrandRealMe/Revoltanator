@@ -3,6 +3,8 @@ const Embed = require("../util/embed");
 const mtempy = require("mtempy");
 const axios = require("axios");
 const fs = require("fs");
+const { pipeline } = require('stream/promises');
+
 
 
 const { Hercai } = require("hercai");
@@ -16,24 +18,21 @@ function slugify(m) {
 }
 
 async function downloadImage(url, path) {
-  const response = await axios({
-    method: "GET",
-    url: url,
-    responseType: "stream",
-  });
-
-  response.data.pipe(fs.createWriteStream(path));
-
-  return new Promise((resolve, reject) => {
-    response.data.on("end", () => {
-      resolve();
-    });
-
-    response.data.on("error", (err) => {
-      log.error(err);
-      reject(err);
-    });
-  });
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to download: ${response.status} ${response.statusText}`);
+    }
+    
+    const fileStream = fs.createWriteStream(path);
+    await pipeline(response.body, fileStream);
+    console.log('Image downloaded successfully ' +  fileStream.path);
+    return fileStream.path;
+    
+} catch (error) {
+    console.error('Download failed:', error);
+    throw error;  // Re-throw the error for handling by the caller
+}
 }
 
 module.exports = {
@@ -72,23 +71,18 @@ module.exports = {
       .then(async (response) => {
         const tempUrl = response.url;
         console.log(`TempURL: ${tempUrl}`)
-        const downloadedImage = downloadImage(tempUrl, localPath)
+        downloadImage(tempUrl, localPath)
           .then(async () => {
-            const image = await uploader.uploadFile(localPath, fname);
-            console.log(image);
             msg.reply({
               content: "Here's your image: ",
-              attachments: [image],
+              attachments: [await uploader.uploadFile(localPath, fname)],
             });
           })
           .catch((err) => {
             console.error("Error:", err);
             console.error("Imagine TempURL:", tempUrl);
-            msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
+            msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` | error - ${err}` })
           });
-          console.log("Downloaded Image ----")
-          console.log(await downloadedImage)
-          console.log("end of Downloaded Image ----")
       }
     );
       

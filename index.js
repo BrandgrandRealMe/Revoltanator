@@ -113,7 +113,7 @@ client.on("ready", async () => {
   }, 120000);
 });
 
-const prefix = "//";
+const prefix = process.env.REVOLTANATOR_PREFIX;
 const handler = new CommandHandler(client, prefix);
 handler.setReplyHandler((t, msg) => {
   msg.reply(t, false);

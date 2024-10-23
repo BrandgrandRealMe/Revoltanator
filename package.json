@@ -27,7 +27,7 @@
     "lib": "^5.0.1",
     "minecraft-lookup": "^1.1.36",
     "mtempy": "^1.0.0",
-    "node-fetch": "^3.2.6",
+    "node-fetch": "^3.3.2",
     "one-liner-joke": "^1.2.2",
     "perplexityai": "^1.0.1",
     "pixelheads": "^1.0.18",
