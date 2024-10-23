@@ -83,6 +83,7 @@ module.exports = {
           .catch((err) => {
             console.error("Error:", err);
             console.error("Imagine TempURL:", tempUrl);
+            msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
           });
 
         // The module will reply based on the prompt!
