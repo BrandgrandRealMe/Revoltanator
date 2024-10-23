@@ -71,6 +71,7 @@ module.exports = {
       .drawImage({ prompt: message })
       .then(async (response) => {
         const tempUrl = response.url;
+        console.log(`TempURL: ${tempUrl}`)
         downloadImage(tempUrl, localPath)
           .then(async () => {
             const image = await uploader.uploadFile(localPath, fname);
