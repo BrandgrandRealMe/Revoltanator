@@ -72,7 +72,7 @@ module.exports = {
       .then(async (response) => {
         const tempUrl = response.url;
         console.log(`TempURL: ${tempUrl}`)
-        downloadImage(tempUrl, localPath)
+        const downloadedImage = downloadImage(tempUrl, localPath)
           .then(async () => {
             const image = await uploader.uploadFile(localPath, fname);
             console.log(image);
@@ -86,7 +86,12 @@ module.exports = {
             console.error("Imagine TempURL:", tempUrl);
             msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
           });
-      });
+          console.log("Downloaded Image ----")
+          console.log(downloadedImage)
+          console.log("end of Downloaded Image ----")
+      }
+    );
+      
     } catch {
       msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
     }
