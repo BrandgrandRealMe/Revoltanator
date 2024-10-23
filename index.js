@@ -106,11 +106,11 @@ client.on("ready", async () => {
     client.user.edit({
       status: { text: `//help | ${servers} Servers!`, presence: "Focus" },
     });
-    await delay(30000);
+    await delay(60000);
     client.user.edit({
       status: { text: `//help | v${ver}`, presence: "Focus" },
     });
-  }, 60000);
+  }, 120000);
 });
 
 const prefix = "//";

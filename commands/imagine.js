@@ -66,8 +66,8 @@ module.exports = {
     const message = data.get("prompt").value;
     const fname = `${slugify(message)}.png`;
     const localPath = mtempy.file({ name: fname });
-    
-    hercai
+    try {
+      hercai
       .drawImage({ prompt: message })
       .then(async (response) => {
         const tempUrl = response.url;
@@ -85,8 +85,9 @@ module.exports = {
             console.error("Imagine TempURL:", tempUrl);
             msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
           });
-
-        // The module will reply based on the prompt!
       });
+    } catch {
+      msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
+    }
   },
 };
