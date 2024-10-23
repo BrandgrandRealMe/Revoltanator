@@ -87,7 +87,7 @@ module.exports = {
             msg.reply({ content: `Error: Send This to the owner: \`Imagine Error with Prompt - ${message || "N/A"} | TempURL - ${tempUrl || "N/A"}\` ` })
           });
           console.log("Downloaded Image ----")
-          console.log(downloadedImage)
+          console.log(await downloadedImage)
           console.log("end of Downloaded Image ----")
       }
     );
