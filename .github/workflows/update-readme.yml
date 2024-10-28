@@ -27,9 +27,13 @@ jobs:
         STRUCTURE=$(tree -I 'node_modules|.git|.github|.idea' --noreport)
         
         # Check if the project structure has changed
-        if ! git diff --exit-code --quiet README.md; then
+        if ! git diff --exit-code --quiet -- README.md; then
           # Update the README.md file
-          sed -i "s|## 📁 Project Structure.*|## 📁 Project Structure\n\n\`\`\`sh\n$STRUCTURE\n\`\`\`|" README.md
+          echo "## 📁 Project Structure" > README.md
+          echo "" >> README.md
+          echo "```sh" >> README.md
+          echo "$STRUCTURE" >> README.md
+          echo "```" >> README.md
           
           # Commit the changes
           git add README.md
