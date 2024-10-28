@@ -1,0 +1,40 @@
+name: Update README.md
+
+on:
+  push:
+    paths:
+      - '**/*'
+      - '!package.json'
+      - '!package-lock.json'
+      - '!README.md'
+  pull_request:
+    paths:
+      - '**/*'
+      - '!package.json'
+      - '!package-lock.json'
+      - '!README.md'
+
+jobs:
+
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Update Project Structure in README.md
+      run: |
+        # Get the current project structure
+        STRUCTURE=$(tree -I 'node_modules|.git|.github|.idea' --noreport)
+        
+        # Check if the project structure has changed
+        if ! git diff --exit-code --quiet README.md; then
+          # Update the README.md file
+          sed -i "s|## 📁 Project Structure.*|## 📁 Project Structure\n\n\`\`\`sh\n$STRUCTURE\n\`\`\`|" README.md
+          
+          # Commit the changes
+          git add README.md
+          git commit -m "Update project structure in README.md"
+          git push
+        else
+          echo "No changes to the project structure. Skipping update."
+        fi
