@@ -1,5 +1,5 @@
-<p align="center">
-    <img src="images/pfp.jpg" align="center" style="border-radius:50%;" width="30%">
+<p align="center"> 
+    <img src="https://images.weserv.nl/?url=https://raw.githubusercontent.com/BrandgrandRealMe/Revoltanator/refs/heads/main/images/pfp.jpg?fit=cover&mask=circle&maxage=7d" align="center" style="border-radius:50%;" width="30%">
 </p>
 <p align="center"><h1 align="center">Meet Revoltanator</h1></p>
 <p align="left">
@@ -8,11 +8,11 @@
 
 ###  Some Features
 
-**AI** | You can ask AI something or just have a convo with a AI
+🤖 **AI** | You can ask AI something or just have a convo with a AI
 
-**Minecraft tools** | Find out info on a player or view someones skin
+🎮 **Videogame tools** | Find out info on a Minecraft player or view someones Minecraft skin
 
-**Fun** | Get a random dad joke, flip a coin, roll a die, get a trivia question, or even get a random number fact!
+🎲 **Fun** | Get a random dad joke, flip a coin, roll a die, get a trivia question, or even get a random number fact!
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/BrandgrandRealMe/Revoltanator?style=default&logo=opensourceinitiative&logoColor=white&color=fe2627" alt="license">
@@ -54,17 +54,17 @@ With its diverse array of features and a personality that's sure to keep you ent
 
 ## 👾 Features
 
-#### AI Interaction
+#### 🤖 AI Interaction
 
 Engage in conversations with a helpful and knowledgeable AI assistant
 Ask the AI questions on a variety of topics and receive insightful responses
 
-#### Minecraft Tools
+#### 🎮 Videogame Tools
 
 Access information about Minecraft players, including their in-game skins
-Explore and utilize various Minecraft-related tools and resources
+Explore and utilize various Videogame-related tools and resources
 
-#### Fun and Entertainment
+#### 🎲 Fun and Entertainment
 
 Enjoy a repertoire of corny dad jokes to tickle your funny bone
 Flip a coin, roll a die, or get a random trivia question for a quick dose of entertainment
