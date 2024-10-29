@@ -81,6 +81,8 @@ client.on("ready", async () => {
   
   // Socket Stuff
   const io = new Server(server);
+  io.listen(port);
+
   io.on('connection', (socket) => {
     updateWEB();
     console.log('a user connected');
