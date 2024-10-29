@@ -68,13 +68,13 @@ client.on("ready", async () => {
   const server = createServer(app);
   const port = process.env.REVOLTANATOR_PORT;
 
-  app.get('/', (req, res) => {
+  app.get('/RevoltanatorStatus', (req, res) => {
     res.sendFile(__dirname + "/web/index.html");
   });
-  app.get('/index.css', (req, res) => {
+  app.get('/RevoltanatorStatus/index.css', (req, res) => {
     res.sendFile(__dirname + "/web/index.css");
   });
-  app.get('/index.js', (req, res) => {
+  app.get('/RevoltanatorStatus/index.js', (req, res) => {
     res.sendFile(__dirname + "/web/index.js");
   });
 
