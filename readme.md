@@ -362,7 +362,8 @@ Run Revoltanator `index.js` using the following command:
 ---
 ## 📌 Project Roadmap
 
-- [ ] **`Fix imagine command`**: Fix the uploading problems with `//imagine`
+- [x] **`Fix imagine command`**: Fix the uploading problems with `//imagine`.
+- [ ] **`Update Hercai`**: Update the `Hercai` package.
 
 ---
 

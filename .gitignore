@@ -6,3 +6,4 @@ replit.nix
 result
 .env
 node_modules
+.vscode
